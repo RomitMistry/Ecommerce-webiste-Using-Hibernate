@@ -2,12 +2,12 @@ package dao;
 
 import java.util.List;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.hql.internal.ast.HqlASTFactory;
+
 import org.hibernate.query.Query;
 
 import DBconnection.connection;
@@ -56,6 +56,23 @@ public class customerdao {
 		return c;
 	}
 
+	
+	public customermodel updateuser(customermodel c) {
+		
+		session = new connection().getsession();
+		tx = session.beginTransaction();
+		Query q = session.createQuery("update customermodel c set c.name =?1 ,c.email =?2,c.phone=?3 where c.id = ?4");
+		q.setParameter(1, c.getName());
+		q.setParameter(2, c.getEmail());
+		q.setParameter(3, c.getPhone());
+		q.setParameter(4, c.getId());
+		
+		q.executeUpdate();
+		tx.commit();
+		session.close();
+		return c;
+		
+	}
 }
 	
 	

@@ -78,6 +78,20 @@ public class customercontroller extends HttpServlet {
 		 		request.getRequestDispatcher("customerindex.jsp").forward(request, response);
 		 	}
 			}
+		
+		else if(action.equalsIgnoreCase("update")) {
+			 customermodel c1 = new customermodel();
+		
+			 c1.setId(Integer.parseInt(request.getParameter("id")));
+			 c1.setName(request.getParameter("name"));
+			 c1.setEmail(request.getParameter("email"));
+			 c1.setPhone(Long.parseLong(request.getParameter("phone")));
+			
+			 
+			 customermodel c = new customerdao().updateuser(c1);
+			 response.sendRedirect("customerindex.jsp");
+			
+		}
 		}
 	
 	

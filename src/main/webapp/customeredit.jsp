@@ -6,11 +6,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 
 <!DOCTYPE html>
+<%@page import="model.customermodel"%>
 <html lang="zxx">
 
 <head>
     <title>Baggage Ecommerce Category Bootstrap Responsive Web Template | Sign Up :: W3layouts</title>
     <!-- Meta tag Keywords -->
+    
+    <%
+    customermodel c = null;
+    if(session.getAttribute("data") != null){
+    	c = (customermodel)session.getAttribute("data");
+    }
+    %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
     <meta name="keywords" content="Baggage Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
@@ -79,19 +87,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="field-group">
 
                             <div class="content-input-field">
-                                <input name="name" id="text1" type="text" value="" placeholder="User Name" required="">
+                                <input name="id" id="text1" type="hidden" value="<%= c.getId() %>" placeholder="User Name" required="">
+                            </div>
+
+                            <div class="content-input-field">
+                                <input name="name" id="text1" type="text" value="<%= c.getName() %>" placeholder="User Name" required="">
                             </div>
                         </div>
                         <div class="field-group">
 
                             <div class="content-input-field">
-                                <input name="email" id="text1" type="email" value="" placeholder="User Email" required="">
+                                <input name="email" id="text1" type="email" value="<%= c.getEmail() %>" placeholder="User Email" required="">
                             </div>
                         </div>
                         <div class="field-group">
 
                             <div class="content-input-field">
-                                <input name="phone" id="text3" type="number" value="" placeholder="UserPhone" required="">
+                                <input name="phone" id="text3" type="number" value="<%= c.getPhone() %>" placeholder="UserPhone" required="">
                             </div>
                         </div>
                         <div class="content-input-field">
