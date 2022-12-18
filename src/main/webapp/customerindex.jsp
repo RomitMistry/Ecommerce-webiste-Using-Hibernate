@@ -6,6 +6,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 
 <!DOCTYPE html>
+<%@page import="model.customermodel"%>
 <html lang="zxx">
 
 <head>
@@ -37,7 +38,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!-- //Fonts -->
 
 </head>
-
+  <%
+    customermodel c = null;
+    if(session.getAttribute("data") != null){
+    	c = (customermodel)session.getAttribute("data");
+    }
+    %>
 <body>
     <div class="main-sec">
         <!-- //header -->
@@ -53,6 +59,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <a href="changepassword.jsp" class="btn"><span class="fa fa-user-circle-o"></span> Change Password</a>
                         <a href="customeredit.jsp" class="btn"><span class="fa fa-user-circle-o"></span> Update Profile</a>
                         <a href="logout.jsp" class="btn"><span class="fa fa-pencil-square-o"></span> logout</a>
+                          <a href="customerindex.jsp" class="btn"><span class="fa fa-pencil-square-o"></span> <%= c.getName() %></a>
                     </div>
                 </div>
                <!--  <div class="nav-top-wthree">

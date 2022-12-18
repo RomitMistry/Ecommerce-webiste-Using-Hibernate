@@ -50,6 +50,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
 
                     <div class="forms ml-auto">
+                    <a href="index.jsp" class="btn"><span class="fa fa-user-circle-o"></span> HOME</a>
                         <a href="login.jsp" class="btn"><span class="fa fa-user-circle-o"></span> Sign In</a>
                         <a href="register.jsp" class="btn"><span class="fa fa-pencil-square-o"></span> Sign Up</a>
                     </div>
@@ -98,7 +99,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 </label>
                             </li>
                             <li>
-                                <a href="#" class="text-right">Forgot password?</a>
+                                <a href="forgetpassword.jsp" class="text-right">Forgot password?</a>
                             </li>
                             <li class="clearfix"></li>
                         </ul>

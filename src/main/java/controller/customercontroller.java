@@ -89,7 +89,19 @@ public class customercontroller extends HttpServlet {
 			
 			 
 			 customermodel c = new customerdao().updateuser(c1);
-			 response.sendRedirect("customerindex.jsp");
+			 HttpSession session =  request.getSession();
+			 session.setAttribute("data", c1);
+			 request.getRequestDispatcher("customerindex.jsp").forward(request, response);
+			
+		}
+		
+		else if(action.equalsIgnoreCase("changepassword")) {
+			
+			String email = request.getParameter("email");
+			String op = request.getParameter("op");
+			String np = request.getParameter("np");
+			String cnp = request.getParameter("cnp");
+			
 			
 		}
 		}

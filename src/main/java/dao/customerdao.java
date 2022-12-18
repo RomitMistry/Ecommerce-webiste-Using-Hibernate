@@ -10,6 +10,8 @@ import org.hibernate.Transaction;
 
 import org.hibernate.query.Query;
 
+import com.mysql.cj.protocol.Resultset;
+
 import DBconnection.connection;
 import model.customermodel;
 
@@ -73,6 +75,27 @@ public class customerdao {
 		return c;
 		
 	}
+	
+	public Boolean checkpassword (String email,String pass)
+	{
+		Boolean flag = false;
+		try {
+			session = new connection().getsession();
+			tx = session.beginTransaction();
+			
+			Query q = session.createQuery("select * from customermodel where email =? and password = ?");
+			q.setParameter(1, email);
+			q.setParameter(2, pass);
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+	return null;
+		
+
+}
 }
 	
 	

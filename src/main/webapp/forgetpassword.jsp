@@ -6,19 +6,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 
 <!DOCTYPE html>
-<%@page import="model.customermodel"%>
 <html lang="zxx">
 
 <head>
     <title>Baggage Ecommerce Category Bootstrap Responsive Web Template | Sign Up :: W3layouts</title>
     <!-- Meta tag Keywords -->
-    
-    <%
-    customermodel c = null;
-    if(session.getAttribute("data") != null){
-    	c = (customermodel)session.getAttribute("data");
-    }
-    %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
     <meta name="keywords" content="Baggage Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
@@ -48,25 +40,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <body>
     <div class="main-sec inner-page">
-        <!-- //header -->
-        <header class="py-sm-3 pt-3 pb-2" id="home">
-            <div class="container">
-                <!-- nav -->
-                <div class="top-w3pvt d-flex">
-                    <div id="logo">
-                        <h1> <a href="index.jsp"><span class="log-w3pvt">B</span>aggage</a> <label class="sub-des">Online Store</label></h1>
-                    </div>
+        
+               
+                <div class="nav-top-wthree">
+                    <nav>
+                        <label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
+                        <input type="checkbox" id="drop" />
+                        <ul class="menu">
+                            <li><a href="index.jsp">Home</a></li>
+                            
+                                <!-- First Tier Drop Down -->
+                                <label for="drop-2" class="toggle">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span>
+                                </label>
+                         
 
-                    <div class="forms ml-auto">
-                 
-                        <a href="customerindex.jsp" class="btn"><span class="fa fa-user-circle-o"></span><%= c.getName() %></a>
-                        <a href="changepassword.jsp" class="btn"><span class="fa fa-pencil-square-o"></span> Change Password</a>
-                          <a href="logout.jsp" class="btn"><span class="fa fa-pencil-square-o"></span> Logout</a>
-                    </div>
-                </div>
-            
+                     
+                    </nav>
                     <!-- //nav -->
-                  
+                    
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -88,35 +79,38 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="field-group">
 
                             <div class="content-input-field">
-                                <input name="id" id="text1" type="hidden" value="<%= c.getId() %>" placeholder="User Name" required="">
-                            </div>
+                            <h1>FORGOT PASSWORD</h1>
+                                
 
                             <div class="content-input-field">
-                                <input name="name" id="text1" type="text" value="<%= c.getName() %>" placeholder="User Name" required="">
+                                <input name="email" id="text1" type="email" value="" placeholder="Enter Your Email" required="">
                             </div>
                         </div>
-                        <div class="field-group">
-
-                            <div class="content-input-field">
-                                <input name="email" id="text1" type="email" value="<%= c.getEmail() %>" placeholder="User Email" required="">
-                            </div>
-                        </div>
-                        <div class="field-group">
-
-                            <div class="content-input-field">
-                                <input name="phone" id="text3" type="number" value="<%= c.getPhone() %>" placeholder="UserPhone" required="">
-                            </div>
-                        </div>
+                      
                         <div class="content-input-field">
-                            <button type="submit"   value="update" name="action"   class="btn">Update</button>
+                            <button type="submit"   value="GETOTP" name="action"    class="btn">GET OTP</button>
                         </div>
-                     
+                        <div class="list-login-bottom text-center mt-lg-5 mt-4">
+
+                        
+
+
+
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
-   
+    
+    <!-- copyright -->
+    <div class="cpy-right text-center py-3">
+        <p>© 2019 Baggage. All rights reserved | Design by
+            <a href="http://w3layouts.com"> W3layouts.</a>
+        </p>
+
+    </div>
+    <!-- //copyright -->
 
 </body>
 
