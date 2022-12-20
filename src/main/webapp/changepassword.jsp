@@ -6,6 +6,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 
 <!DOCTYPE html>
+<%@page import="model.customermodel"%>
 <html lang="zxx">
 
 <head>
@@ -38,6 +39,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 </head>
 
+ 
+    <%
+    customermodel c = null;
+    if(session.getAttribute("data") != null){
+    	c = (customermodel)session.getAttribute("data");
+    }
+    %>
 <body>
     <div class="main-sec inner-page">
         <!-- //header -->
@@ -70,6 +78,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!-- //header -->
 
     </div>
+    
+    
 
     <!-- //banner-->
     <!--/login -->
@@ -82,11 +92,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="content-bottom">
                     <form action="customercontroller" method="post">
                         <div class="field-group">
+                        
+
 
                             <div class="content-input-field">
-                                <input name="op" id="text1" type="password" value="" placeholder="Enter Old Password" required="">
+                                <input name="id" id="text1" type="hidden" value="<%= c.getId() %>" required="">
                             </div>
                         </div>
+                          <div class="field-group">
+
+                            <div class="content-input-field">
+                                <input name="op" id="text1" type="password" value="" placeholder="Enter old Password" required="">
+                            </div>
+                        </div>
+                        
                         <div class="field-group">
 
                             <div class="content-input-field">

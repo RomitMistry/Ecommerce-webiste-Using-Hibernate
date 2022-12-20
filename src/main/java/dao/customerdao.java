@@ -2,7 +2,7 @@ package dao;
 
 import java.util.List;
 
-
+import javax.persistence.EntityManager;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -17,8 +17,8 @@ import model.customermodel;
 
 public class customerdao {
 
-	Session session = null;
-	Transaction tx = null;
+ Session session = null;
+    Transaction tx = null;
 	SessionFactory sf = null;
 	List<customermodel> list = null;
 
@@ -89,13 +89,76 @@ public class customerdao {
 			
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+		      e.printStackTrace();
 		}
 		
 	return null;
 		
 
 }
+	
+	public customermodel deleteuser(int id) {
+		customermodel c = null;
+		session = new connection().getsession();
+		tx = session.beginTransaction();
+		
+		Query q = session.createQuery("delete from customermodel c where c.id=?1");
+		q.setParameter(1, id);
+		q.executeUpdate();
+		tx.commit();
+		session.close();
+		return c;
+		
+	}
+	
+	public  boolean checkpassword1(int id, String op) {
+		Boolean flag = false;
+		try {
+			session = new connection().getsession();
+			tx = session.beginTransaction();
+			
+			Query q = session.createQuery("from customermodel c where c.email=:email and c.password=:password");
+			q.setParameter(1, id);
+			q.setParameter(2, op);
+			
+			flag = true;
+			
+			tx.commit();
+			session.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return flag;
+			
+	}
+	
+	public customermodel updatePassword(int id , String np) {
+		
+		customermodel c1 = null;
+		try {
+			session = new connection().getsession();
+			tx = session.beginTransaction();
+			
+			Query q = session.createQuery("update customermodel c set c.password =?1 where c.id = ?2");
+			
+			q.setParameter(1, np);
+			q.setParameter(2, id);
+			
+			q.executeUpdate();
+			tx.commit();
+			session.close();
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return c1;
+	
+		
+	}
+	
+	
 }
 	
 	

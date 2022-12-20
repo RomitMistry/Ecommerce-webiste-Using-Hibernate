@@ -110,6 +110,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="content-input-field">
                             <button type="submit"   value="update" name="action"   class="btn">Update</button>
                         </div>
+                        <div class="content-input-field">
+                            <button type="submit"   value="delete" name="action"   class="btn">Delete</button>
+                        </div>
                      
                     </form>
                 </div>

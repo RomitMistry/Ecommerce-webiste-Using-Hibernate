@@ -94,20 +94,44 @@ public class customercontroller extends HttpServlet {
 			 request.getRequestDispatcher("customerindex.jsp").forward(request, response);
 			
 		}
+		else if(action.equalsIgnoreCase("delete")) {
+			
+			int id = Integer.parseInt(request.getParameter("id"));
+			customermodel c = new customerdao().deleteuser(id);
+			response.sendRedirect("index.jsp");
+		}
 		
 		else if(action.equalsIgnoreCase("changepassword")) {
-			
-			String email = request.getParameter("email");
+			int id = Integer.parseInt(request.getParameter("id"));
 			String op = request.getParameter("op");
 			String np = request.getParameter("np");
 			String cnp = request.getParameter("cnp");
 			
+			Boolean flag = new customerdao().checkpassword1(id, op);
+			if(flag == true) {
+				if(np.equals(cnp)) {
+				new customerdao().updatePassword(id, cnp);
+					response.sendRedirect("customerindex.jsp");
+				}
+				else{
+					request.setAttribute("msgpass", "new pass and cnp not matched");
+					request.getRequestDispatcher("changepassword.jsp").forward(request, response);
+				}
+			}
+			else {
+				request.setAttribute("msg", "old password not matched");
+				request.getRequestDispatcher("changepassword.jsp").forward(request, response);
+			}
 			
+			System.out.println(op);
+			System.out.println(np);
+			System.out.println(cnp);
 		}
 		}
 	
-	
+	}
 
-}
+
+
 
 
